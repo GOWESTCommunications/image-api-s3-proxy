@@ -1,0 +1,17 @@
+{
+    "name": "gowest/image-api-s3-proxy",
+    "description": "Stores images after processing via GO.WEST Image API to S3 Bucket",
+    "license": "GPL-2.0-or-later",
+    "config": {
+        "platform": {
+            "php": "7.2"
+        },
+        "sort-packages": true
+    },
+    "repositories": [],
+    "require": {
+        "aws/aws-sdk-php": "^3.159"
+    },
+    "scripts": {
+    }
+}
