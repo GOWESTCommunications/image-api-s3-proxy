@@ -26,7 +26,7 @@ if(md5($imageConf) != $requestUriCheck) {
     exit;
 }
 
-$ch = curl_init('https://dovagg9rh1.execute-api.eu-central-1.amazonaws.com/v1/image');
+$ch = curl_init('https://api.pixpic.at/v1/image');
 curl_setopt($ch, CURLOPT_POSTFIELDS, $imageConf);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 curl_setopt($ch, CURLOPT_BINARYTRANSFER, true);
