@@ -38,10 +38,21 @@ curl_setopt($ch, CURLOPT_HTTPHEADER,[
 ]);
 
 $apiResponse = curl_exec($ch);
+$httpResponseCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
 curl_close($ch);
+
+if($httpResponseCode != 200) {
+    http_response_code($httpResponseCode);
+    exit;
+}
 
 $file_array = explode("\r\n\r\n", $apiResponse, 2);
 $header_array = explode("\r\n", $file_array[0]);
+
+if(isJson($file_array[1])) {
+    http_response_code(400);
+    exit;
+}
 
 foreach ($header_array as $header_value) {
     $header_pieces = explode(': ', $header_value);
@@ -63,4 +74,9 @@ try {
     ]);
 } catch (Aws\S3\Exception\S3Exception $e) {
     echo "There was an error uploading the file.\n";
+}
+
+function isJson($string) {
+    json_decode($string);
+    return (json_last_error() == JSON_ERROR_NONE);
 }
