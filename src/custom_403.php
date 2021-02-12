@@ -1,7 +1,7 @@
 <?php
-require_once __DIR__.'/../vendor/autoload.php';
-require_once __DIR__.'/../config.php';
-
+$baseDir = dirname(__DIR__, 1);
+require_once $baseDir . '/vendor/autoload.php';
+require_once $baseDir . '/config.php';
 
 $config['s3']['options']['credentials'] = new Aws\Credentials\Credentials($config['s3']['key'], $config['s3']['secret']);
 
@@ -60,7 +60,6 @@ foreach ($header_array as $header_value) {
         $headers[strtolower($header_pieces[0])] = trim($header_pieces[1]);
     }
 }
-
 
 try {
     $s3Client->putObject([

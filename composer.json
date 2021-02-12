@@ -11,7 +11,8 @@
     "repositories": [],
     "require": {
         "aws/aws-sdk-php": "^3.159",
-        "composer/installers": "~1.0"
+        "composer/installers": "~1.0",
+        "vlucas/phpdotenv": "^5.3"
     },
     "scripts": {
     }
