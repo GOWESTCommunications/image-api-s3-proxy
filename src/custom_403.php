@@ -75,6 +75,11 @@ try {
     echo "There was an error uploading the file.\n";
 }
 
+// display image
+header('Content-Type: ' . $headers['content-type']);
+header('Content-Length: ' . $headers['content-length']);
+print_r($file_array[1]);
+
 function isJson($string) {
     json_decode($string);
     return (json_last_error() == JSON_ERROR_NONE);
