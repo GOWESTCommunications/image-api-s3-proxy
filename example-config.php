@@ -15,4 +15,5 @@ $config = [
         'key' => hex2bin("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"), // 32 charakter hex string - has to match nuxt application setting
         'iv' =>  hex2bin("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"), // 32 charakter hex string - has to match nuxt application setting
     ],
+    'parameters_encrypted' => true,
 ];
