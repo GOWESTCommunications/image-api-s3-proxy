@@ -15,8 +15,7 @@ $imageConfPart = $requestUriParts[1];
 $s3OriginalUri = $requestUri;
 $s3NewPath = preg_replace('/^\//', '', $requestUri);
 
-$imageConf = trim(openssl_decrypt($imageConfPart, 'AES-128-CBC', $config['encryption']['key'], OPENSSL_ZERO_PADDING, $config['encryption']['iv']));
-
+$imageConf = $config['parameters_encrypted'] ? trim(openssl_decrypt($imageConfPart, 'AES-128-CBC', $config['encryption']['key'], OPENSSL_ZERO_PADDING, $config['encryption']['iv'])) : urldecode($imageConfPart);
 
 $requestUriCheckParts = explode('/', $requestUri);
 $requestUriCheck = $requestUriCheckParts[2];
